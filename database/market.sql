@@ -12,14 +12,13 @@ CREATE TABLE IF NOT EXISTS `users` (
     updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);
 
 CREATE TABLE IF NOT EXISTS `product` (
-    productid int(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    productid int(11) UNSIGNED NOT NULL PRIMARY KEY,
     sellerid int(11) UNSIGNED NOT NULL,
     name varchar(255) NOT NULL,
     description varchar(255) NOT NULL,
     image varchar(255) NOT NULL,
     price float NOT NULL,
     category varchar(255) NOT NULL,
-    created_at datetime DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (sellerid) REFERENCES users(userid));
 
 CREATE TABLE IF NOT EXISTS `orders` (
